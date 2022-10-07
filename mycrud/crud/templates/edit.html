@@ -1,0 +1,45 @@
+{% extends "./base.html" %}
+
+{% block title %} Edit {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Edit</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="{% url 'editUrl' developer.slug %}"  method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="number" id="codigoInput" name="codigoInput" value="{{developer.codigo}}" class="form-control" placeholder="Name"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="nitInput" name="nitInput" value="{{developer.nit}}" class="form-control" placeholder="Age"
+                            maxlength="10" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="nombreInput" name="nombreInput" value="{{developer.nombre}}" class="form-control"
+                        placeholder="nombre"required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="apellido1Input" name="apellido1Input" value="{{developer.apellido1}}" class="form-control"
+                        placeholder="apellido1"required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="apellido2Input" name="apellido2Input" value="{{developer.apellido2}}" class="form-control"
+                        placeholder="apellido2"required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="codigo_departamentoInput" name="codigo_departamentoInput" value="{{developer.codigo_departamento}}" class="form-control"
+                        placeholder="codigo_Dep"required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block text-white">Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
